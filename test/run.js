@@ -5,10 +5,6 @@ var osjs = process.env.COVERAGE
 var os = require('os');
 var should = require('should');
 
-os.release = function(){
-  return '11.4.2';
-}
-
 if (os.platform() == 'darwin') {
   describe('require(osjs)', function(){
 

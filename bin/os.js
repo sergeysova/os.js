@@ -1,10 +1,6 @@
 
 var os = require('os');
 
-os.release = function(){
-  return '11.4.2';
-}
-
 // Declare variables instead function calls
 var Type = os.type();
 var Platform = os.platform();
