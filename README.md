@@ -2,7 +2,7 @@
 Very stupid detection of OS version and Name for node(io).js
 More usable for Atom's [Electron](electron.atom.io).
 
-# Warning!
+### Warning!
 This package under development!
 Now detect only Mac OS X
 
