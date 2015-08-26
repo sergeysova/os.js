@@ -2,9 +2,15 @@
   "name": "os.js",
   "version": "0.1.0",
   "description": "Very stupid detection of OS",
-  "main": "os.js",
+  "main": "bin/os.js",
+  "bin": {
+    "os.js": "bin/cli.js"
+  },
   "scripts": {
-    "test": "     "
+    "test": "NODE_ENV=test $(npm bin)/mocha -r should -R spec",
+    "clean-cov": "rm -rf coverage/ coverage.html",
+    "prepare-cov": "./node_modules/.bin/jscoverage --encoding=utf8 --no-highlight bin coverage",
+    "coverage": "npm run prepare-cov && COVERAGE=1 ./node_modules/.bin/mocha -r should -R html-cov > coverage.html"
   },
   "repository": {
     "type": "git",
@@ -26,5 +32,10 @@
   "bugs": {
     "url": "https://github.com/LestaD/os.js/issues"
   },
-  "homepage": "https://github.com/LestaD/os.js#readme"
+  "homepage": "https://github.com/LestaD/os.js#readme",
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "should": "^7.0.4",
+    "supertest": "^1.0.1"
+  }
 }
