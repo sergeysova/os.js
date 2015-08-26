@@ -2,12 +2,17 @@
 Very stupid detection of OS version and Name for node(io).js
 More usable for Atom's [Electron](electron.atom.io).
 
+![Mocha Testing](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Dependencies](https://david-dm.org/lestad/os.js.svg)
+
 ### Warning!
 This package under development!
 Now detect only Mac OS X
 
 # Usage
 Install in your project:
+
+[![NPM](https://nodei.co/npm/os.js.png?compact=true)](https://nodei.co/npm/os.js/)
 
 ```bash
 npm install os.js --save
