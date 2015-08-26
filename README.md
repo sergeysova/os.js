@@ -7,6 +7,7 @@ More usable for Atom's [Electron](electron.atom.io).
 ![npm version](https://badge.fury.io/js/os.js.svg)
 [![npm](https://img.shields.io/npm/l/os.js.svg)]()
 [![Code Climate](https://codeclimate.com/github/LestaD/os.js/badges/gpa.svg)](https://codeclimate.com/github/LestaD/os.js)
+![GitHub tag](https://img.shields.io/github/tag/lestad/os.js.svg)
 
 
 ### Warning!
