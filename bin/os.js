@@ -1,38 +1,19 @@
 
 var os = require('os');
 
+os.release = function(){
+  return '11.4.2';
+}
+
+// Declare variables instead function calls
 var Type = os.type();
 var Platform = os.platform();
 var Release = os.release().split('.');
 var Architecture = os.arch().replace('x', '');
+var Map = require('../lib/map');
 
 
-var Map = {
-  'os=darwin' : {
-    set: {
-      major: 10
-    },
-    'major=5': {
-      set: {
-        minor: 1,
-        codename: 'Puma'
-      }
-    },
-    'major=14': {
-      set: {
-        minor: 10,
-        codename: 'Yosemite'
-      }
-    },
-    'major=15': {
-      set: {
-        minor: 11,
-        codename: 'El Capitan'
-      }
-    }
-  }
-};
-
+// Structure of response
 var Tags = {
   os: '',
   version: {
@@ -43,6 +24,8 @@ var Tags = {
   arch: Number(Architecture.replace('x'))
 };
 
+
+// Set variables from `set` object to base version
 function ApplySet(from, to) {
   if (typeof from.set != 'undefined') {
     if (from.set.major) {
@@ -58,6 +41,8 @@ function ApplySet(from, to) {
   return to;
 }
 
+
+// Select basics info about versions from map
 function Select(platform, major, minor) {
   var osc = Map['os=' + platform] || {};
   var version = {
@@ -82,12 +67,20 @@ function Select(platform, major, minor) {
   return version;
 }
 
+// Set concrete version to response
 Tags.version = Select(Platform, Release[0], Release[1]);
 
+// Select platform
 switch(Platform) {
-  case 'darwin': Tags.os = 'Mac OS'; break;
+  case 'darwin': Tags.os = 'OS X'; break;
   case 'linux': Tags.os = 'Linux'; break;
   case 'win': Tags.os = 'Windows'; break;
 }
+
+Object.defineProperty(Tags.version, 'toString', {
+  value: function(){
+    return this.major + '.' + this.minor;
+  }
+});
 
 module.exports = Tags;

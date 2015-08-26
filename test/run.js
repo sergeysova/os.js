@@ -5,6 +5,10 @@ var osjs = process.env.COVERAGE
 var os = require('os');
 var should = require('should');
 
+os.release = function(){
+  return '11.4.2';
+}
+
 if (os.platform() == 'darwin') {
   describe('require(osjs)', function(){
 
@@ -35,7 +39,7 @@ if (os.platform() == 'darwin') {
   if (os.platform() == 'darwin') {
     describe('mac -', function(){
       it('os name', function(){
-        osjs.should.have.property('os').and.equal('Mac OS');
+        osjs.should.have.property('os').and.equal('OS X');
       })
 
       var current = os.release().split('.');
@@ -94,3 +98,5 @@ if (os.platform() == 'darwin') {
     })
   }
  }
+
+ console.log(osjs.os, osjs.version.codename, String(osjs.version), 'x'+osjs.arch);
