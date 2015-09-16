@@ -1,11 +1,9 @@
-languages:
-  JavaScript: true
 engines:
   eslint:
     enabled: true
     checks:
       no-console:
-        enabled: true
+        enabled: false
       no-undef:
-        enabled: true
+        enabled: false
 
