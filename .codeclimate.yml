@@ -1,9 +1,2 @@
-engines:
-  eslint:
-    enabled: true
-    checks:
-      no-console:
-        enabled: true
-      no-undef:
-        enabled: true
-
+languages:
+  JavaScript: true
