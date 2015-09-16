@@ -3,3 +3,9 @@ languages:
 engines:
   eslint:
     enabled: true
+    checks:
+      no-console:
+        enabled: false
+      no-undef:
+        enabled: false
+

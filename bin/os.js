@@ -56,7 +56,7 @@ function selectFromMap(platform, major, minor) {
     // Apply by minor version
     var curMinor = curMajor["minor=" + minor];
     if (typeof curMinor !== "undefined") {
-      version = applySet(curMinor, version)
+      version = applySet(curMinor, version);
     }
   }
   return version;
@@ -74,6 +74,7 @@ switch(Platform) {
 
 Object.defineProperty(Tags.version, "toString", {
   value: function(){
+    "use strict";
     return this.major + "." + this.minor;
   }
 });
