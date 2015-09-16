@@ -2,7 +2,7 @@
 Very stupid detection of OS version and Name for node(io).js
 More usable for Atom's [Electron](electron.atom.io).
 
-![Mocha Testing](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![TravisCI](https://api.travis-ci.org/LestaD/os.js.svg)
 ![Dependencies](https://david-dm.org/lestad/os.js.svg)
 ![npm version](https://badge.fury.io/js/os.js.svg)
 [![npm](https://img.shields.io/npm/l/os.js.svg)]()
