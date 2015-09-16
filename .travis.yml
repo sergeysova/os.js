@@ -4,4 +4,6 @@ node_js:
  - "iojs-v2.5.0"
  - "iojs-v3.0.0"
  - "4.0.0"
-
+addons:
+    code_climate:
+        repo_token: c3d3013c50f69fff7777afe0fb571337d11404a33015f950cb654ca3516cf044
