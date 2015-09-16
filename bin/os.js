@@ -2,11 +2,10 @@
 var os = require('os');
 
 // Declare variables instead function calls
-var Type = os.type();
 var Platform = os.platform();
 var Release = os.release().split('.');
 var Architecture = os.arch().replace('x', '');
-var Map = require('../lib/map');
+var OSMap = require('../lib/map');
 
 
 // Structure of response
@@ -22,8 +21,8 @@ var Tags = {
 
 
 // Set variables from `set` object to base version
-function ApplySet(from, to) {
-  if (typeof from.set != 'undefined') {
+function applySet(from, to) {
+  if (typeof from.set !== 'undefined') {
     if (from.set.major) {
       to.major = from.set.major;
     }
@@ -39,32 +38,32 @@ function ApplySet(from, to) {
 
 
 // Select basics info about versions from map
-function Select(platform, major, minor) {
-  var osc = Map['os=' + platform] || {};
+function selectFromMap(platform, major, minor) {
+  var osc = OSMap['os=' + platform] || {};
   var version = {
     major: -1,
     minor: -1,
     codename: ''
-  }
+  };
   // Apply current version set
-  version = ApplySet(osc, version);
+  version = applySet(osc, version);
 
   // Apply by major define
   var curMajor = osc['major=' + major];
   if (typeof curMajor !== 'undefined') {
-    version = ApplySet(curMajor, version);
+    version = applySet(curMajor, version);
 
     // Apply by minor version
     var curMinor = curMajor['minor=' + minor];
     if (typeof curMinor !== 'undefined') {
-      version = ApplySet(curMinor, version)
+      version = applySet(curMinor, version)
     }
   }
   return version;
 }
 
 // Set concrete version to response
-Tags.version = Select(Platform, Release[0], Release[1]);
+Tags.version = selectFromMap(Platform, Release[0], Release[1]);
 
 // Select platform
 switch(Platform) {
