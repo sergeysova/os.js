@@ -3,7 +3,7 @@ engines:
     enabled: true
     checks:
       no-console:
-        enabled: false
+        enabled: true
       no-undef:
-        enabled: false
+        enabled: true
 
